@@ -1,7 +1,5 @@
-package com.cakefactory.user.persistence;
+package com.cakefactory.user.persistence.Account;
 
-import com.cakefactory.user.Account;
-import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
 
 @Component

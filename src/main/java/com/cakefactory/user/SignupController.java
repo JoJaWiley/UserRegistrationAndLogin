@@ -1,7 +1,7 @@
 package com.cakefactory.user;
 
-import com.cakefactory.user.persistence.AccountService;
-import com.cakefactory.user.persistence.AddressService;
+import com.cakefactory.user.persistence.Account.AccountService;
+import com.cakefactory.user.persistence.Address.AddressService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,7 @@ public class SignupController {
         this.addressService = addressService;
     }
 
-    //what happens when it's already in DB?
+    //what happens when it's already in DB? use primary keys
     @PostMapping
     String createUser(@RequestParam String email, @RequestParam String password, @RequestParam String line1,
                         @RequestParam String line2, @RequestParam String postcode) {
