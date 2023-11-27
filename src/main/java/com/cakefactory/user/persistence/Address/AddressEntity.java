@@ -1,4 +1,4 @@
-package com.cakefactory.user.persistence;
+package com.cakefactory.user.persistence.Address;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

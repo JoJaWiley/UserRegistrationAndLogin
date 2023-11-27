@@ -1,6 +1,5 @@
-package com.cakefactory.user.persistence;
+package com.cakefactory.user.persistence.Account;
 
-import com.cakefactory.user.Address;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
