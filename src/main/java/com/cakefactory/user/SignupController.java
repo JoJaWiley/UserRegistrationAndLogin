@@ -1,8 +1,7 @@
 package com.cakefactory.user;
 
-import com.cakefactory.user.persistence.Account.AccountService;
-import com.cakefactory.user.persistence.Address.AddressService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,20 +10,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/signup")
 public class SignupController {
 
-    private final AccountService accountService;
-    private final AddressService addressService;
+    private final OGSignupService signupService;
 
-    public SignupController(AccountService accountService, AddressService addressService) {
-        this.accountService = accountService;
-        this.addressService = addressService;
+    public SignupController(OGSignupService signupService) {
+        this.signupService = signupService;
     }
 
-    //what happens when it's already in DB? use primary keys
+    @GetMapping
+    String signup() {
+        return "signup";
+    }
+
+    //what happens when it's already in DB? use primary key, only matters for account
     @PostMapping
-    String createUser(@RequestParam String email, @RequestParam String password, @RequestParam String line1,
+    String signup(@RequestParam String email, @RequestParam String password, @RequestParam String line1,
                         @RequestParam String line2, @RequestParam String postcode) {
-        this.accountService.CreateAccount(email, password);
-        this.addressService.CreateAddress(line1, line2, postcode);
+        if (this.signupService.accountExists(email)) {
+            return "redirect:/login";
+        }
+
+        this.signupService.register(email, password, line1, line2, postcode);
         return "redirect:/";
     }
 }

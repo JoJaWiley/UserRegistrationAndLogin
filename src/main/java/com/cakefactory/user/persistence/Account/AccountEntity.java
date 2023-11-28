@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "account")
-class AccountEntity {
+public class AccountEntity {
 
     @Id
     String email;
@@ -20,6 +20,10 @@ class AccountEntity {
     public AccountEntity(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public AccountEntity() {
+
     }
 
     @Override
