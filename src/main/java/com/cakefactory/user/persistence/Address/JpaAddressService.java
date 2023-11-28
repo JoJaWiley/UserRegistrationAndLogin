@@ -1,9 +1,15 @@
 package com.cakefactory.user.persistence.Address;
 
+import com.cakefactory.user.Address;
+import com.cakefactory.user.AddressService;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-public class JpaAddressService {
+public class JpaAddressService implements AddressService {
+
+    private final Address emptyAddress = new Address("", "", "");
 
     private final AddressRepository addressRepository;
 
@@ -11,13 +17,16 @@ public class JpaAddressService {
         this.addressRepository = addressRepository;
     }
 
-    //what happens when it's already in DB?
-    public Boolean createAddress(String line1, String line2, String postcode) {
-        if (line1 == null || line1.isEmpty() || line2 == null || line2.isEmpty() || postcode == null || postcode.isEmpty()) {
-            return false;
-        }
+    @Override
+    public Address findOrEmpty(String email) {
+        Optional<AddressEntity> ae = this.addressRepository.findById(email);
 
-        addressRepository.save(new AddressEntity(line1, line2, postcode));
-        return true;
+        return ae.map(e -> new Address(e.getLine1(), e.getLine2(), e.getPostcode())).orElse(emptyAddress);
+
+    }
+
+    @Override
+    public void update(String email, String line1, String line2, String postcode) {
+        addressRepository.save(new AddressEntity(email, line1, line2, postcode));
     }
 }

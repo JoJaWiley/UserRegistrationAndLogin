@@ -24,7 +24,7 @@ public class JpaAccountService implements AccountService {
     @Override
     public Account find(String email) {
         AccountEntity accountEntity = this.accountRepository.findByEmail(email);
-        return new Account(email, accountEntity.password);
+        return new Account(email, accountEntity.getPassword());
     }
 
     @Override

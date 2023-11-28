@@ -4,14 +4,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Data
 @Entity
 @Table(name = "address")
 public class AddressEntity {
+
+    @Id
+    String email;
 
     @NotBlank
     String line1;
@@ -22,10 +27,20 @@ public class AddressEntity {
     @NotBlank
     String postcode;
 
-    @Id
-    String address = Stream.of(line1, line2, postcode).collect(Collectors.joining(", "));
+
 
     public AddressEntity(String line1, String line2, String postcode) {
+        this.line1 = line1;
+        this.line2 = line2;
+        this.postcode = postcode;
+    }
+
+    public AddressEntity() {
+
+    }
+
+    public AddressEntity(String email, String line1, String line2, String postcode) {
+        this.email = email;
         this.line1 = line1;
         this.line2 = line2;
         this.postcode = postcode;
@@ -35,7 +50,7 @@ public class AddressEntity {
     public boolean equals(Object obj) {
         if (obj instanceof AddressEntity) {
             AddressEntity other = (AddressEntity) obj;
-            return Objects.equals(this.address, other.address);
+            return Objects.equals(this.email, other.email);
         }
 
         return false;
@@ -43,6 +58,6 @@ public class AddressEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.address);
+        return Objects.hashCode(this.email);
     }
 }

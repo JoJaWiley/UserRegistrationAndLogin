@@ -1,4 +1,4 @@
-package com.cakefactory.user.persistence.Address;
+package com.cakefactory.user;
 
 import com.cakefactory.user.Address;
 
