@@ -19,11 +19,11 @@ public class OGSignupService {
             return;
         }
 
-        this.accountService.createAccount(email, password);
-        this.addressService.createAddress(line1, line2, postcode);
+        this.accountService.register(email, password);
+        this.addressService.update(email, line1, line2, postcode);
     }
 
     public Boolean accountExists(String email) {
-        return this.accountService.accountAlreadyExists(email);
+        return this.accountService.exists(email);
     }
 }

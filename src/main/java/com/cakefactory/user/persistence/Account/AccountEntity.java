@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "account")
 public class AccountEntity {
