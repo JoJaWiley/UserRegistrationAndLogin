@@ -5,7 +5,7 @@ import com.cakefactory.user.persistence.Address.JpaAddressService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OGSignupService {
+public class OGSignupService implements SignupService {
     private final JpaAccountService accountService;
     private final JpaAddressService addressService;
 
@@ -14,16 +14,15 @@ public class OGSignupService {
         this.addressService = addressService;
     }
 
-    public void register(String email, String password, String line1, String line2, String postcode) {
-        if (this.accountExists(email)) {
-            return;
-        }
+    @Override
+    public boolean accountExists(String email) {
+        return this.accountService.exists(email);
+    }
 
+    @Override
+    public void register(String email, String password, String line1, String line2, String postcode) {
         this.accountService.register(email, password);
         this.addressService.update(email, line1, line2, postcode);
     }
 
-    public Boolean accountExists(String email) {
-        return this.accountService.exists(email);
-    }
 }
