@@ -1,4 +1,4 @@
-package com.cakefactory.user.persistence.Account;
+package com.cakefactory.signup.persistence.Account;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

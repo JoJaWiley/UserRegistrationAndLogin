@@ -1,7 +1,7 @@
-package com.cakefactory.user.persistence.Account;
+package com.cakefactory.signup.persistence.Account;
 
-import com.cakefactory.user.Account;
-import com.cakefactory.user.AccountService;
+import com.cakefactory.signup.Account;
+import com.cakefactory.signup.AccountService;
 import org.springframework.stereotype.Component;
 
 @Component

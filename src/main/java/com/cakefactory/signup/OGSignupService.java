@@ -1,7 +1,7 @@
-package com.cakefactory.user;
+package com.cakefactory.signup;
 
-import com.cakefactory.user.persistence.Account.JpaAccountService;
-import com.cakefactory.user.persistence.Address.JpaAddressService;
+import com.cakefactory.signup.persistence.Account.JpaAccountService;
+import com.cakefactory.signup.persistence.Address.JpaAddressService;
 import org.springframework.stereotype.Component;
 
 @Component

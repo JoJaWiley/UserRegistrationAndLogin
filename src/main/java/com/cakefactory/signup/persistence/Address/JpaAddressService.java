@@ -1,7 +1,7 @@
-package com.cakefactory.user.persistence.Address;
+package com.cakefactory.signup.persistence.Address;
 
-import com.cakefactory.user.Address;
-import com.cakefactory.user.AddressService;
+import com.cakefactory.signup.Address;
+import com.cakefactory.signup.AddressService;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

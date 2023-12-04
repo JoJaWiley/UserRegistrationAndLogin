@@ -1,4 +1,4 @@
-package com.cakefactory.user;
+package com.cakefactory.signup;
 
 public interface AccountService {
     public void register(String email, String password);
