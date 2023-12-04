@@ -1,4 +1,4 @@
-package com.cakefactory.user;
+package com.cakefactory.signup;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.cakefactory.user;
+package com.cakefactory.signup;
 
 public interface SignupService {
     public boolean accountExists(String email);

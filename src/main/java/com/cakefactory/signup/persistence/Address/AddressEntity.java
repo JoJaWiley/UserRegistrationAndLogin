@@ -1,4 +1,4 @@
-package com.cakefactory.user.persistence.Address;
+package com.cakefactory.signup.persistence.Address;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,8 +7,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data
 @Entity

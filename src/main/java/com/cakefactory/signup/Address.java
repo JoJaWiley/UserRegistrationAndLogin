@@ -1,9 +1,6 @@
-package com.cakefactory.user;
+package com.cakefactory.signup;
 
 import lombok.Data;
-
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data
 public class Address {

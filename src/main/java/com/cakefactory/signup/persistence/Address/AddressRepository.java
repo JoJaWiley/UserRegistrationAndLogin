@@ -1,4 +1,4 @@
-package com.cakefactory.user.persistence.Address;
+package com.cakefactory.signup.persistence.Address;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,6 +1,4 @@
-package com.cakefactory.user;
-
-import com.cakefactory.user.Address;
+package com.cakefactory.signup;
 
 public interface AddressService {
 
