@@ -1,10 +1,14 @@
 package com.cakefactory.user;
 
+import com.cakefactory.basket.Basket;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping("/signup")
@@ -20,6 +24,7 @@ public class SignupController {
     String signup() {
         return "signup";
     }
+
 
     //what happens when it's already in DB? use primary key, only matters for account
     @PostMapping
