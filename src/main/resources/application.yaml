@@ -20,6 +20,10 @@ spring:
         hibernate:
             ddl-auto: validate
 
+    mustache:
+        servlet:
+          expose-request-attributes: true
+
 
 flyway:
     url: jdbc:postgresql://localhost:5432/
