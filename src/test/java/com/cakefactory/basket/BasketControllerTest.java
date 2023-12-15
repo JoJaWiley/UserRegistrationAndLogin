@@ -17,6 +17,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 
 @WebMvcTest(controllers = BasketController.class)
 public class BasketControllerTest {
@@ -31,7 +32,7 @@ public class BasketControllerTest {
     void addsItemsToBasket() throws Exception {
         String expectedSku = "rv";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/basket").param("sku", expectedSku))
+        mockMvc.perform(MockMvcRequestBuilders.post("/basket").param("sku", expectedSku).with(csrf()))
                 .andExpect(status().isFound())
                 .andExpect(header().string("Location", "/"));
 
@@ -42,7 +43,7 @@ public class BasketControllerTest {
     void removesItemsFromBasket() throws Exception {
         String expectedSku = "rv";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/basket/delete").param("sku", expectedSku))
+        mockMvc.perform(MockMvcRequestBuilders.post("/basket/delete").param("sku", expectedSku).with(csrf()))
                 .andExpect(status().isFound())
                 .andExpect(header().string("Location", "/basket"));
 
