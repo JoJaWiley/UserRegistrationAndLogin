@@ -1,4 +1,4 @@
-package com.cakefactory;
+package com.cakefactory.security;
 
 import jakarta.servlet.*;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
