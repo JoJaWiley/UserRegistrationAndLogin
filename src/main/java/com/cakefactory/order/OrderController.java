@@ -31,8 +31,8 @@ class OrderController {
     }
 
     @PostMapping
-    String completeOrder(@RequestParam String addressLine1, @RequestParam String addressLine2, @RequestParam String postcode) {
-        final String address = Stream.of(addressLine1, addressLine2, postcode).collect(Collectors.joining(", "));
+    String completeOrder(@RequestParam String line1, @RequestParam String line2, @RequestParam String postcode) {
+        final String address = Stream.of(line1, line2, postcode).collect(Collectors.joining(", "));
         this.eventPublisher.publishEvent(new OrderReceivedEvent(address, basket.getItems()));
         this.basket.clear();
         return "redirect:/order";

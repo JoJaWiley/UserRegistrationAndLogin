@@ -38,12 +38,12 @@ class BasketController {
         model.put("items", basket.getItems());
         if (principal != null) {
             Address address = this.addressService.findOrEmpty(principal.getName());
-            model.put("addressLine1", address.getLine1());
-            model.put("addressLine2", address.getLine2());
+            model.put("line1", address.getLine1());
+            model.put("line2", address.getLine2());
             model.put("postcode", address.getPostcode());
         } else {
-            model.put("addressLine1", "");
-            model.put("addressLine2", "");
+            model.put("line1", "");
+            model.put("line2", "");
             model.put("postcode", "");
         }
 
