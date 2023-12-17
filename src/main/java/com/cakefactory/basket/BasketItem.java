@@ -1,10 +1,9 @@
 package com.cakefactory.basket;
 
-import java.math.BigDecimal;
-
 import com.cakefactory.catalog.Item;
-
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 @Data
 public class BasketItem {

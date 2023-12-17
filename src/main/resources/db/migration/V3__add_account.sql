@@ -9,3 +9,4 @@ CREATE TABLE address (
     line2 varchar(255) NOT NULL,
     postcode varchar(15) NOT NULL
 );
+

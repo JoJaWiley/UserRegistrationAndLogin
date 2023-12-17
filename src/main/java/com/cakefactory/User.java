@@ -2,6 +2,7 @@ package com.cakefactory;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
+@Table(name = "user")
 @Data
 @NoArgsConstructor(access= AccessLevel.PROTECTED, force=true)
 @RequiredArgsConstructor

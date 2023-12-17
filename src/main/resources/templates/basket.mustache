@@ -37,7 +37,6 @@
         <div class="col-lg-12 mt-4 mb-4">
             <h1>Delivery address</h1>
             <form method="post" action="/order">
-                <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}"/>
                 <div class="form-group">
                     <label for="addressLine1">Address Line 1</label>
                     <input required type="text" class="form-control" name="addressLine1" id="addressLine1" placeholder="Address Line 1">
@@ -51,6 +50,7 @@
                     <input required type="text" class="form-control" name="postcode" id="postcode" placeholder="Postcode">
                 </div>
                 <button type="submit" class="btn btn-primary float-right" id="complete-order">Complete order</button>
+                <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}"/>
             </form>
         </div>
     </div>

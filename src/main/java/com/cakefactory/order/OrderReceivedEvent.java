@@ -11,4 +11,8 @@ public class OrderReceivedEvent {
     private final String deliveryAddress;
     private final Collection<BasketItem> items;
 
+    public OrderReceivedEvent(String address, Collection<BasketItem> items) {
+        this.deliveryAddress = address;
+        this.items = items;
+    }
 }

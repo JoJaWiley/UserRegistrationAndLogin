@@ -1,7 +1,6 @@
 package com.cakefactory.order;
 
 import com.cakefactory.basket.BasketItem;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

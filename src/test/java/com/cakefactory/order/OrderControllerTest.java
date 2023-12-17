@@ -1,7 +1,5 @@
 package com.cakefactory.order;
 
-import com.cakefactory.basket.Basket;
-import com.cakefactory.basket.BasketItem;
 import com.cakefactory.catalog.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
