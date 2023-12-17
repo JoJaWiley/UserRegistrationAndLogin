@@ -4,7 +4,9 @@ import com.cakefactory.signup.Address;
 import com.cakefactory.signup.AddressService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -22,17 +24,25 @@ public class AccountController {
 
     @GetMapping
     ModelAndView account(Principal principal) {
+        return getModelAndView(principal);
+    }
+
+    @PostMapping
+    ModelAndView updateAddress(Principal principal, @RequestParam String line1, @RequestParam String line2,
+                         @RequestParam String postcode) {
+        this.addressService.update(principal.getName(), line1, line2, postcode);
+
+        return getModelAndView(principal);
+    }
+
+    private ModelAndView getModelAndView(Principal principal) {
         HashMap<String, Object> model = new HashMap<>();
-        if (principal != null) {
-            Address address = this.addressService.findOrEmpty(principal.getName());
-            model.put("line1", address.getLine1());
-            model.put("line2", address.getLine2());
-            model.put("postcode", address.getPostcode());
-        } else {
-            model.put("line1", "");
-            model.put("line2", "");
-            model.put("postcode", "");
-        }
+
+        Address address = this.addressService.findOrEmpty(principal.getName());
+        model.put("line1", address.getLine1());
+        model.put("line2", address.getLine2());
+        model.put("postcode", address.getPostcode());
+
 
         return new ModelAndView("account", model);
     }
