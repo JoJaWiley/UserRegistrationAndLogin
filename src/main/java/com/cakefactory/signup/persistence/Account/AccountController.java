@@ -24,18 +24,6 @@ public class AccountController {
 
     @GetMapping
     ModelAndView account(Principal principal) {
-        return getModelAndView(principal);
-    }
-
-    @PostMapping
-    ModelAndView updateAddress(Principal principal, @RequestParam String line1, @RequestParam String line2,
-                         @RequestParam String postcode) {
-        this.addressService.update(principal.getName(), line1, line2, postcode);
-
-        return getModelAndView(principal);
-    }
-
-    private ModelAndView getModelAndView(Principal principal) {
         HashMap<String, Object> model = new HashMap<>();
 
         Address address = this.addressService.findOrEmpty(principal.getName());
@@ -46,4 +34,17 @@ public class AccountController {
 
         return new ModelAndView("account", model);
     }
+
+    @PostMapping
+    String updateAddress(Principal principal, @RequestParam String line1, @RequestParam String line2,
+                         @RequestParam String postcode) {
+        if (principal == null) {
+            return "redirect:/login";
+        }
+
+        this.addressService.update(principal.getName(), line1, line2, postcode);
+
+        return "redirect:/account";
+    }
+
 }
