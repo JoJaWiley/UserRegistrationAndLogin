@@ -1,0 +1,27 @@
+{{>header}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mt-4 mb-4">
+            <h1>Delivery address</h1>
+            <form method="post" action="/account">
+                <div class="form-group">
+                    <label for="line1">Address Line 1</label>
+                    <input required type="text" class="form-control" name="line1" id="line1" placeholder="Address Line 1" value="{{line1}}">
+                </div>
+                <div class="form-group">
+                    <label for="line2">Address Line 1</label>
+                    <input type="text" class="form-control" name="line2" id="line2" placeholder="Address Line 2" value="{{line2}}">
+                </div>
+                <div class="form-group">
+                    <label for="postcode">Postcode</label>
+                    <input required type="text" class="form-control" name="postcode" id="postcode" placeholder="Postcode" value="{{postcode}}">
+                </div>
+                <button type="submit" class="btn btn-primary float-right" id="complete-order">Update Address</button>
+                <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}
