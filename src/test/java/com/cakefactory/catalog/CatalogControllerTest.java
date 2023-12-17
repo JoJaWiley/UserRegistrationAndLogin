@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.util.Collections;
 
-import com.cakefactory.basket.Basket;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomNode;

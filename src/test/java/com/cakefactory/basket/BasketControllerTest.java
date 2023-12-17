@@ -2,6 +2,7 @@ package com.cakefactory.basket;
 
 import com.cakefactory.catalog.Item;
 import com.cakefactory.client.BrowserClient;
+import com.cakefactory.signup.AddressService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,6 +28,9 @@ public class BasketControllerTest {
 
     @MockBean
     Basket basket;
+
+    @MockBean
+    AddressService addressService;
 
     @Test
     void addsItemsToBasket() throws Exception {
